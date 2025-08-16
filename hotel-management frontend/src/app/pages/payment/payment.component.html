@@ -1,0 +1,63 @@
+<!-- src/app/pages/payment/payment.component.html -->
+<div class="container mt-4">
+  <h3>Enter Payment Details</h3>
+
+  <form (ngSubmit)="processPayment()" #paymentForm="ngForm">
+    <div class="mb-3">
+      <label for="name" class="form-label">Name on Card</label>
+      <input
+        type="text"
+        id="name"
+        name="name"
+        class="form-control"
+        required
+        [(ngModel)]="paymentData.name"
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="cardNumber" class="form-label">Card Number</label>
+      <input
+        type="text"
+        id="cardNumber"
+        name="cardNumber"
+        class="form-control"
+        required
+        maxlength="16"
+        [(ngModel)]="paymentData.cardNumber"
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="expiry" class="form-label">Expiry Date (MM/YY)</label>
+      <input
+        type="text"
+        id="expiry"
+        name="expiry"
+        class="form-control"
+        required
+        placeholder="MM/YY"
+        [(ngModel)]="paymentData.expiry"
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="cvv" class="form-label">CVV</label>
+      <input
+        type="password"
+        id="cvv"
+        name="cvv"
+        class="form-control"
+        required
+        maxlength="4"
+        [(ngModel)]="paymentData.cvv"
+      />
+    </div>
+
+    <div class="mb-3">
+      <strong>Total Amount:</strong> ₹{{ totalAmount }}
+    </div>
+
+    <button type="submit" class="btn btn-success">Pay Now</button>
+  </form>
+</div>

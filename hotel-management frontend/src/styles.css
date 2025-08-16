@@ -1,0 +1,58 @@
+/* styles.css */
+
+.transition-hover:hover {
+  transform: translateY(-5px);
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+body {
+  background-color: #f8fbff;
+  font-family: "Segoe UI", sans-serif;
+}
+.hero-section {
+  background: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1650&q=80') no-repeat center center/cover;
+  height: 90vh;
+  position: relative;
+}
+
+.hero-overlay {
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.text-accent {
+  color: #00c9ff;
+}
+
+.btn-accent {
+  background-color: #00c9ff;
+  border: none;
+  color: white;
+}
+
+.btn-accent:hover {
+  background-color: #009ccc;
+  color: white;
+}
+
+.feature-card {
+  transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+}
+
+.navbar .nav-link:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    text-align: center;
+    height: auto;
+    padding: 80px 0;
+  }
+}
+/* You can add global styles to this file, and also import other style files */

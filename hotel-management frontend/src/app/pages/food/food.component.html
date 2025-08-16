@@ -1,0 +1,52 @@
+<div class="container mt-4">
+  <h2 class="mb-4 text-center">Select Your Meal</h2>
+
+  <!-- Category Buttons -->
+  <div class="d-flex justify-content-center mb-3">
+    <button class="btn btn-outline-primary me-2" [class.active]="category === 'breakfast'" (click)="selectCategory('breakfast')">Breakfast</button>
+    <button class="btn btn-outline-success me-2" [class.active]="category === 'lunch'" (click)="selectCategory('lunch')">Lunch</button>
+    <button class="btn btn-outline-warning" [class.active]="category === 'dinner'" (click)="selectCategory('dinner')">Dinner</button>
+  </div>
+
+  <!-- Food Menu -->
+  <div class="row">
+    <div class="col-md-4 mb-4" *ngFor="let item of filteredItems">
+      <div class="card h-100">
+        <img [src]="item.image" class="card-img-top" [alt]="item.name" height="180">
+        <div class="card-body">
+          <h5 class="card-title">{{ item.name }}</h5>
+          <p class="card-text">₹{{ item.price }}</p>
+          <button class="btn btn-primary" (click)="orderItem(item)">Add to Order</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Order Summary -->
+  <div class="mt-5">
+    <h4>Ordered Items</h4>
+    <ul class="list-group mb-3" *ngIf="orderedItems.length > 0; else noItems">
+      <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let item of orderedItems; let i = index">
+        {{ item.name }} - ₹{{ item.price }}
+        <button class="btn btn-sm btn-danger" (click)="removeItem(i)">Remove</button>
+      </li>
+    </ul>
+    <ng-template #noItems>
+      <p class="text-muted">No items added yet.</p>
+    </ng-template>
+
+    <div class="d-flex justify-content-between align-items-center mt-3">
+      <h5>Total: ₹{{ getTotal() }}</h5>
+      <button class="btn btn-success" (click)="openPaymentModal()">Proceed to Pay</button>
+    </div>
+  </div>
+</div>
+
+<!-- Payment Modal -->
+<div class="modal fade" id="paymentModal" tabindex="-1" aria-labelledby="paymentModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      
+    </div>
+  </div>
+</div>
