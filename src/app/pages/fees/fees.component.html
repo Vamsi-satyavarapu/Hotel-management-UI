@@ -1,0 +1,19 @@
+<div class="container mt-5">
+  <h2 class="text-center mb-4">Fee</h2>
+  <table class="table table-bordered table-striped">
+    <thead class="table-primary">
+      <tr>
+        <th>Room Type</th>
+        <th>Monthly Fee</th>
+        <th>Annual Fee</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let fee of feeList">
+        <td>{{ fee.type }}</td>
+        <td class="text-end">{{ fee.monthly }}</td>
+        <td class="text-end">{{ fee.annual }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
